@@ -1,6 +1,7 @@
 import express from 'express';
 import getRifHolders from './rif-holders.js';
 import getBlockHeight from './block-height.js';
+import getAvgGasPrice from './avg-tsx-gas-price.js';
 
 const router = express.Router();
 /* 
@@ -28,5 +29,8 @@ Using the Block Height information from step 1 above, query the API for the list
 router.route('/rif-holders/:dateTime').get(getRifHolders);
 // retrieves the number of current RIF token holders
 router.route('/rif-holders/').get(getRifHolders);
+
+router.route('/avg-gas-price/:address').get(getAvgGasPrice);
+router.route('/avg-gas-price/').get(getAvgGasPrice);
 
 export default router;
